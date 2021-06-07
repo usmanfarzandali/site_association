@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--For Frontkend-->
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+      <xpath expr="." position="inside">
+          <link rel="stylesheet" href="/site_association/static/src/css/style1.css"/>
+      </xpath>
+    </template>
+
+      <!--    creates menu inside website-->
+    <record id="menu_member_form" model="website.menu">
+        <field name="name">Register As New Member</field>
+        <field name="url">/member_webform</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">55</field>
+    </record>
+
+      <!--creates form of student in website-->
+    <template id="register_member" name="Register Member">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="container-background">
+                            <div class="container-inner">
+                                 <div class="information">
+                                    <center>membership form</center>
+                                 </div>
+                                 <form action="#">
+                                      <div class="form-details">
+                                           <div class="input-box">
+                                                <input type="text" placeholder="Full Name"/>
+                                                <i class="fa fa-user fa-lg fa-fw" id='user'></i>
+                                           </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Address type"/>
+                                              <i class="fa fa-map-marker fa-lg fa-fw " id='user'></i>
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Company Address" required="required"/>
+                                              <i class="fa fa-building" id='user'></i>
+                                          </div>
+                                           <div class="input-box">
+                                               <input type="text" placeholder="Job Position" required="required"/>
+                                               <i class="fa fa-briefcase" id='user'></i>
+                                           </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Phone Number" required="required"/>
+                                              <i class="fa fa-phone fa-lg fa-fw" id='user'></i>
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Mobile Number" required="required"/>
+                                              <i class="fa fa-mobile fa-lg fa-fw" id='user'></i>
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Email Address" required="required"/>
+                                              <i class="fa fa-envelope-open-o " id='user'></i>
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Website Link" required="required"/>
+                                              <i class="fa fa-desktop " id='user'></i>
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Title" required="required"/>
+                                              <i class="fa fa-header " id='user'></i>
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" placeholder="Tags" required="required"/>
+                                              <i class="fa fa-tags " id='user'></i>
+                                          </div>
+                                      </div>
+                                          <div class="button-box">
+                                              <input type="submit" value="Register"/>
+                                              <!-- abstract design -->
+                                              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 595.28 120.51">
+                                                  <defs>
+                                                      <style>.cls-1{fill:url(#linear-gradient);}.cls-2{fill:url(#linear-gradient-2);}.cls-3{fill:url(#linear-gradient-3);}.cls-4{fill:url(#linear-gradient-4);}.cls-5{fill:url(#linear-gradient-5);}.cls-6{fill:url(#linear-gradient-6);}</style>
+                                                      <linearGradient id="linear-gradient" x1="455.8" y1="364.76" x2="455.8" y2="447.28" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#932a8e"/><stop offset="1" stop-color="#321049" stop-opacity="0"/></linearGradient>
+                                                      <linearGradient id="linear-gradient-2" x1="314.59" y1="320.41" x2="314.59" y2="447.63" xlink:href="#linear-gradient"/>
+                                                      <linearGradient id="linear-gradient-3" x1="336.88" y1="44.54" x2="336.88" y2="121.12" xlink:href="#linear-gradient"/>
+                                                      <linearGradient id="linear-gradient-4" x1="306.92" y1="364.76" x2="306.92" y2="447.28" gradientTransform="matrix(-1, 0, 0, 1, 446.4, 0)" xlink:href="#linear-gradient"/>
+                                                      <linearGradient id="linear-gradient-5" x1="165.71" y1="320.41" x2="165.71" y2="447.63" gradientTransform="matrix(-1, 0, 0, 1, 446.4, 0)" xlink:href="#linear-gradient"/>
+                                                      <linearGradient id="linear-gradient-6" x1="188.01" y1="370.66" x2="188.01" y2="447.23" gradientTransform="matrix(-1, 0, 0, 1, 446.4, -326.11)" xlink:href="#linear-gradient"/>
+                                                  </defs><title>overlay</title><path fill='#fff' class="cls-1" d="M595.28,368.45V437.4a9.27,9.27,0,0,1-9.3,9.23H316.32Z" transform="translate(0 -326.11)"/>
+                                                  <path class="cls-2" d="M588.27,446.35a9.57,9.57,0,0,1-2.29.28H40.9L491.15,326.11Z" transform="translate(0 -326.11)"/><polygon class="cls-3" points="500.15 120.51 173.62 120.51 450.11 47.98 500.15 120.51"/><path class="cls-4" d="M0,368.45V437.4a9.27,9.27,0,0,0,9.29,9.23H279Z" transform="translate(0 -326.11)"/><path class="cls-5" d="M7,446.35a9.49,9.49,0,0,0,2.28.28H554.37L104.12,326.11Z" transform="translate(0 -326.11)"/><polygon class="cls-6" points="95.12 120.51 421.66 120.51 145.16 47.98 95.12 120.51"/></svg>-->
+                                          </div>
+                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

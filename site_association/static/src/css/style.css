@@ -1,0 +1,122 @@
+.container .container-background{
+    display: flex;
+    height: 180vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+}
+
+.container .container-inner{
+    max-width: 900px;
+    width: 100%;
+    background: #f5f5f5;
+    padding: 25px 30px;
+    align-items: center;
+    box-shadow: 3px 10px 20px #4a4a4a;
+    border-radius: 5px;
+}
+
+.container-inner .title{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-inner .title #title-site{
+    color: #c7ac74;
+}
+
+.container-inner .title #title-association{
+    color: #397821;
+}
+
+.container-inner .title #title-member{
+    color: #000;
+}
+
+.container-inner form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box select{
+     height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box select:focus,
+.user-details .input-box select:valid{
+     border-color: #c7ac74;
+}
+
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #c7ac74;
+}
+
+form .button{
+    height: 45px;
+    width: 100px;
+    margin: 45px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #212529;
+    border: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background: #c7ac74;
+}
+
+form .button input:hover{
+    background: #c7ac74;
+    font-weight: 600
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_site_association_site_association,site_association.site_association,model_site_association_site_association,base.group_user,1,1,1,1

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--For Frontkend-->
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+      <xpath expr="." position="inside">
+          <link rel="stylesheet" href="/site_association/static/src/css/style.css"/>
+      </xpath>
+    </template>
+
+   <!--    creates menu inside website-->
+    <record id="menu_member_form" model="website.menu">
+        <field name="name">Register As New Member</field>
+        <field name="url">/member_webform</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">55</field>
+    </record>
+
+         <!--creates form of student in website-->
+    <template id="create_member" name="Create Member">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                       <div class="container-background">
+                           <div class="container-inner">
+                           <div class="title">
+                               <span id="title-site">S.I.T.E</span>
+                               <span id="title-association">  Association</span>
+                               <span id="title-member">  Member Registration Form</span>
+                           </div>
+                               <br/>
+                               <br/>
+                           <form action="/create/webmember" method="POST">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                               <div class="user-details">
+                                   <div class="input-box">
+                                       <span class="details">Full Name</span>
+                                       <input type="text" placeholder="Enter your name" required="required"
+                                        name="name" id="name" t-att-value="name"/>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Address Type</span>
+                                       <select class="form-control link-style" name="type" id="type" t-att-value="type">
+                                            <option value="contact">Contact</option>
+                                            <option value="invoice">Invoice Address</option>
+                                           <option value="delivery">Delivery Address</option>
+                                           <option value="other">Other Address</option>
+                                           <option value="private">Private Address</option>
+                                       </select>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Street</span>
+                                       <input type="text" placeholder="Enter your street" required="required"
+                                        name="street" id="street" t-att-value="street"/>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Street 2</span>
+                                       <input type="text" placeholder="Enter your street 2" required="required"
+                                        name="street2" id="street2" t-att-value="street2"/>
+                                   </div>
+                                    <div class="input-box">
+                                       <span class="details">City</span>
+                                       <input type="text" placeholder="Enter your city" required="required"
+                                        name="city" id="city" t-att-value="city"/>
+                                   </div>
+                                    <div class="input-box">
+                                       <span class="details">Zip</span>
+                                       <input type="text" placeholder="Enter your zipcode" required="required"
+                                          onfocus="this.value=''" value="Enter your zipcode"
+                                        name="zip" id="zip" t-att-value="zip"/>
+                                   </div>
+                                   <div class="input-box">
+                                        <span class="details">Country</span>
+                                        <select name="country_id" class="form-control link-style">
+                                            <option value="">Country...</option>
+                                            <t t-foreach="countries or []" t-as="country">
+                                                <option t-att-value="country.id">
+                                                    <t t-esc="country.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                   <div class="input-box">
+                                        <span class="details">State</span>
+                                        <select name="state_id" class="form-control link-style">
+                                            <option value="">State...</option>
+                                            <t t-foreach="states or []" t-as="state">
+                                                <option t-att-value="state.id">
+                                                    <t t-esc="state.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                   <div class="input-box">
+                                       <span class="details">Tax ID</span>
+                                       <input type="text" placeholder="e.g. BE0477472701" required="required"
+                                       name="vat" id="vat" t-att-value="vat"/>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Average Number of Employees</span>
+                                       <input type="text" placeholder="Enter average number of employees" required="required"
+                                       name="avg_no_of_employees" id="avg_no_of_employees" t-att-value="avg_no_of_employees"/>
+                                   </div>
+                                    <div class="input-box">
+                                       <span class="details">Job Position</span>
+                                       <input type="text" placeholder="Enter your job position" required="required"
+                                        name="function" id="function" t-att-value="function"/>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Phone</span>
+                                       <input type="text" placeholder="Enter your phone number" required="required"
+                                        name="phone" id="phone" t-att-value="phone"/>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Mobile</span>
+                                       <input type="text" placeholder="Enter your mobile number" required="required"
+                                        name="mobile" id="mobile" t-att-value="mobile"/>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Email</span>
+                                       <input type="text" placeholder="Enter your email" required="required"
+                                        name="email" id="email" t-att-value="email"/>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Website Link</span>
+                                       <input type="text" required="required" placeholder="e.g https://www.google.com"
+                                          onfocus="this.value=''" value="e.g https://www.google.com"
+                                        name="website" id="website" t-att-value="website"/>
+                                   </div>
+                                   <div class="input-box">
+                                        <span class="details">Titles</span>
+                                        <select name="title" class="form-control link-style" >
+                                            <option value="">Title...</option>
+                                            <t t-foreach="titles or []" t-as="title_rec">
+                                                <option t-att-value="title_rec.id">
+                                                    <t t-esc="title_rec.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                   </div>
+                                   <div class="input-box">
+                                       <span class="details">Date of Establishment of Company</span>
+                                       <input type="date" placeholder="Enter date of establishment" required="required"
+                                       name="date_of_establishment" id="date_of_establishment" t-att-value="date_of_establishment"/>
+                                   </div>
+
+                               </div>
+                               <div class="button">
+                                       <input type="submit" value="Register"/>
+                               </div>
+                           </form>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <record id="member_thanks" model="website.page">
+        <field name="name">Thanks</field>
+        <field name="type">qweb</field>
+        <field name="url">/member-thank-you</field>
+        <field name="website_published">True</field>
+        <field name="key">site_association.member_thanks</field>
+        <field name="arch" type="xml">
+            <t name="Thanks" t-name="site_association.member_thanks">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="container">
+                            <h1>Thanks!</h1>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="alert alert-success" role="status">
+                                        The Member Record has been sent successfully.
+                                    </div>
+                                    <p>
+                                        We will get back to you shortly.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+
+</odoo>
