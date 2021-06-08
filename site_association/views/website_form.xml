@@ -8,6 +8,16 @@
       </xpath>
     </template>
 
+    <template id="assets_backend" name="js assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script
+                    type="text/javascript"
+                    src="/site_association/static/src/js/script.js">
+            </script>
+        </xpath>
+    </template>
+
+
    <!--    creates menu inside website-->
     <record id="menu_member_form" model="website.menu">
         <field name="name">Register As New Member</field>
@@ -32,15 +42,32 @@
                                <br/>
                                <br/>
                            <form action="/create/webmember" method="POST">
-                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                               <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                               <div>
+                                   <div>
+                                       <input type="checkbox" id="individual" name="individual" value="individual"/>
+                                       <label for="individual">Individual</label>
+                                       <input type="checkbox" id="company" name="company" value="company"/>
+                                       <label for="individual">Company</label>
+                                       <div class="image_align">
+                                           <input class="image_text" type='file' onchange="readURL(this);"/>
+                                           <img class="image_class" id="blah" src="#" alt="your image" />
+                                       </div>
+                                   </div>
+                               </div>
+                               <br/>
+                               <br/>
                                <div class="user-details">
                                    <div class="input-box">
                                        <span class="details">Full Name</span>
                                        <input type="text" placeholder="Enter your name" required="required"
                                         name="name" id="name" t-att-value="name"/>
+                                       <br/>
+                                       <br/>
                                    </div>
                                    <div class="input-box">
-                                       <span class="details">Address Type</span>
+                                       <span class="details" id="adjustment">Address Type</span>
                                        <select class="form-control link-style" name="type" id="type" t-att-value="type">
                                             <option value="contact">Contact</option>
                                             <option value="invoice">Invoice Address</option>
