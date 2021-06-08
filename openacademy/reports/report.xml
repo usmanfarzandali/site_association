@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- generates the print button  -->
+    <!-- report of student -->
+    <report id="report_student_card"
+        string="Student Card"
+        model="openacademy_student"
+        report_type="qweb-pdf"
+        name="openacademy.report_student"
+        file="openacademy.report_student"/>
+
+    <!-- report of teacher -->
+     <report id="report_teacher_card"
+        string="Teacher Card"
+        model="openacademy_teacher"
+        report_type="qweb-pdf"
+        name="openacademy.report_teacher"
+        file="openacademy.report_teacher"/>
+
+    <!-- report of course -->
+     <report id="report_course_card"
+        string="Course Report"
+        model="openacademy.course"
+        report_type="qweb-pdf"
+        name="openacademy.report_course"
+        file="openacademy.report_course"/>
+
+</odoo>

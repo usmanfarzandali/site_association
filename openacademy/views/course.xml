@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- tree view of courses -->
+    <record id="course_tree" model="ir.ui.view">
+            <field name="name">openacademy.course.tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Courses">
+                    <field name="course_name"/>
+                    <field name="course_timings"/>
+                    <field name="course_description"/>
+                    <field name="course_id"/>
+                </tree>
+            </field>
+        </record>
+
+    <!-- form view of courses -->
+    <record id="course_form" model="ir.ui.view">
+        <field name="name">openacademy.course.form</field>
+        <field name="model">openacademy.course</field>
+        <field name="arch" type="xml">
+            <form string="Courses">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_course_teachers"
+                            type="object" class="oe_stat_button" icon="fa-usd">
+                        <field name="teacher_count" string="Teachers" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                      <group>
+                        <field name="course_name"/>
+                        <field name="course_timings" widget="float_time"/>
+                      </group>
+                      <group>
+                        <field name="course_description"/>
+                        <field name="course_id" widget="many2many_tags"/>
+                      </group>
+                    </group>
+                      <!-- <label for="student_ids"/> -->
+                </sheet>
+                <!-- div for chatter box -->
+               <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>    
+            </form>
+        </field>
+    </record>    
+
+    <!-- action of courses menu -->
+    <record id="openacademycourse_action_window" model="ir.actions.act_window">
+        <field name="name">Openacademy Course</field>
+        <field name="res_model">openacademy.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create First Course!</p>
+        </field>
+    </record> 
+
+    <!-- menuitem of course -->
+    <menuitem id="openacademy_course"
+         name="Course"
+         parent="openacademy_root"
+         action="openacademycourse_action_window"/>
+</odoo>

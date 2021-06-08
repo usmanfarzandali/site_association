@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_course">
+     <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
+                <t t-call="openacademy.custom_course_header_footer"/>
+                <div class="page">
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-xs-2" style="margin:auto;">
+                    </div>
+                    <center>
+                    <div class="col-xs-8" style="margin:auto">
+                        <table class="table table-condensed" style="border: 3px solid black !important;">
+                            <tr>
+                            <td width="40%">
+                                <p style="text-align:center;">
+                                    <h2><strong><span t-field="o.course_name"/></strong></h2>
+                                </p>
+                            </td>
+                            <td width="60%">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p style="text-align:right;"><strong>Timings: </strong></p>
+                                            <p style="text-align:right;"><strong>Description: </strong></p>
+                                            <p style="text-align:right;"><strong>Teachers Assigned: </strong></p>
+                                        </td>
+                                        <td>
+                                            <p style="text-align:left;padding-left:10px;" t-field="o.course_timings"/>
+                                            <p style="text-align:left;padding-left:10px;" t-field="o.course_description"/>
+                                            <p style="text-align:left;padding-left:10px;" t-field="o.course_id"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            </tr>
+                        </table>
+                    </div>
+                    </center>
+                </div>
+                </div>
+            </div>
+        </t>
+     </t>
+    </template>
+</odoo>
