@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_openacademy_student,access.openacademy_student,model_openacademy_student,,1,1,1,1
-access_openacademy_course,access.openacademy.course,model_openacademy_course,,1,1,1,1
-access_openacademy_teacher,access.openacademy_teacher,model_openacademy_teacher,,1,1,1,1
